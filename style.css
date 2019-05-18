@@ -1,0 +1,27 @@
+.wrapper {
+  display: grid;
+  grid-template-columns: 1fr 700px;
+  grid-template-rows: 200px 1fr;
+}
+
+.wrapper > header {
+  grid-column: 1/2;
+  grid-row: 1/2;
+}
+
+.paramenters {
+  grid-column: 1/2;
+  grid-row: 2/3;
+}
+
+.paper {
+  grid-column: 2/3;
+  grid-row: 1/3;
+  position: relative;
+}
+
+.paper > button {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
