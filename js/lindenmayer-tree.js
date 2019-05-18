@@ -48,6 +48,8 @@ function paperSketch(parent) {
       var system = new ps.Group();
       var instructions = createInstructions(order);
 
+      var rng = new Math.seedrandom(parent.data.seed);
+
       var position = new ps.Point(parent.w / 2,parent.h - 50);
       var direction = new ps.Point(0,-1);
       var savedPositions = [];
@@ -74,7 +76,7 @@ function paperSketch(parent) {
               system.addChild(currPath);
           }
           var wiggle = parent.data.r;
-          var theta = -wiggle + Math.random() * wiggle * 2;
+          var theta = -wiggle + rng() * wiggle * 2;
           direction = direction.rotate(theta);
       }
       system.strokeColor = color;
