@@ -25,3 +25,30 @@
   top: 0;
   right: 0;
 }
+
+body {
+  font-family: 'Roboto', sans-serif;
+}
+
+h1 {
+  font-size: 3em;
+  font-family: 'Josefin Sans', sans-serif;
+}
+
+p {
+  font-size: 0.8em;
+}
+
+button {
+  background-color: lavender;
+  border: 1px solid slateblue;
+  color: darkslateblue;
+  padding: 3px 5px;
+  text-align: center;
+  font-size: 0.8em;
+  font-family: 'Roboto', sans-serif;
+}
+
+button:hover {
+  background-color: thistle;
+}

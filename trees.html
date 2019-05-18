@@ -7,22 +7,28 @@
     <script type="text/javascript" src="js/paperjs/dist/paper-full.min.js"></script>
 
     <script src="//cdnjs.cloudflare.com/ajax/libs/seedrandom/3.0.1/seedrandom.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:700|Roboto" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="style.css">
   </head>
   <body>
     <div id="root" class="wrapper">
       <header>
         <h1>Fractal Trees</h1>
-        <p>Based on an <a href="https://en.wikipedia.org/wiki/L-system#Example_7:_Fractal_plant">L-System</a>.</p>
+        <p>
+          Based on an <a href="https://en.wikipedia.org/wiki/L-system#Example_7:_Fractal_plant">L-System</a>.
+        </p>
+        <p>
+          Please note that higher order trees (complexity 6 or greater) take a long time to download and your browser may become very sad.
+        </p>
       </header>
       <div class="parameters">
+        <button @click="tree.seed = Math.random();">Randomize</button>
         <p>Complexity: {{tree.n}}</p>
         <input type="range" min="1" max="8" step="1" v-model="tree.n"></input>
         <p>Segment Length: {{tree.l}}</p>
         <input type="range" min="1" max="15" step="0.1" v-model="tree.l"></input>
         <p>Wiggle: {{tree.r}}</p>
         <input type="range" min="0" max="10" step="0.1" v-model="tree.r"></input>
-        <button @click="tree.seed = Math.random();">Randomize</button>
       </div>
       <paper w="700" h="750" src="js/lindenmayer-tree.js" :data="tree"></paper>
     </div>

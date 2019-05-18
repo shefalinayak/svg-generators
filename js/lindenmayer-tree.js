@@ -40,9 +40,9 @@ function paperSketch(parent) {
 
   var tree;
 
-  var rect = new ps.Path.Rectangle(ps.project.view.bounds);
-  rect.strokeColor = 'pink';
-  rect.fillColor = 'whitesmoke';
+  // var rect = new ps.Path.Rectangle(ps.project.view.bounds);
+  // rect.strokeColor = 'pink';
+  // rect.fillColor = 'whitesmoke';
 
   function drawLindenmayerSystem(order,length,color) {
       var system = new ps.Group();
@@ -114,7 +114,7 @@ function paperSketch(parent) {
     }
     var order = parent.data.n;
     var length = parent.data.l;
-    tree = drawLindenmayerSystem(order,length,'palevioletred');
+    tree = drawLindenmayerSystem(order,length,'mediumpurple');
   }
 
   update();
