@@ -72,17 +72,17 @@ Vue.component('paper', {
         name = 'paperjs';
       }
       let filename = name + '-' + datetime;
-      console.log(filename);
+      //console.log(filename);
 
-      // // download link
-      // let svgBlob = new Blob([svg],{type:"image/svg+xml;charset=utf-8"});
-      // let svgUrl = URL.createObjectURL(svgBlob);
-      // let downloadLink = document.createElement("a");
-      // downloadLink.href = svgUrl;
-      // downloadLink.download = filename;
-      // document.body.appendChild(downloadLink);
-      // downloadLink.click();
-      // document.body.removeChild(downloadLink);
+      // download link
+      let svgBlob = new Blob([svg],{type:"image/svg+xml;charset=utf-8"});
+      let svgUrl = URL.createObjectURL(svgBlob);
+      let downloadLink = document.createElement("a");
+      downloadLink.href = svgUrl;
+      downloadLink.download = filename;
+      document.body.appendChild(downloadLink);
+      downloadLink.click();
+      document.body.removeChild(downloadLink);
     }
   },
 

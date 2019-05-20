@@ -1,7 +1,7 @@
 .wrapper {
   display: grid;
   grid-template-columns: 1fr 700px;
-  grid-template-rows: 200px 1fr;
+  grid-template-rows: auto 1fr;
 }
 
 .wrapper > header {
@@ -35,6 +35,11 @@ h1 {
   font-family: 'Josefin Sans', sans-serif;
 }
 
+h2 {
+  font-size: 2em;
+  font-family: 'Josefin Sans', sans-serif;
+}
+
 p {
   font-size: 0.8em;
 }
@@ -51,4 +56,14 @@ button {
 
 button:hover {
   background-color: thistle;
+}
+
+a {
+  color: gray;
+  font-weight: normal;
+  text-decoration: none;
+}
+
+a:hover {
+  color: mediumpurple;
 }

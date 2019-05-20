@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Dragon Curves</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script type="text/javascript" src="js/paperjs/dist/paper-full.min.js"></script>
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/seedrandom/3.0.1/seedrandom.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:700|Roboto" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="style.css">
+  </head>
+  <body>
+    <div id="root" class="wrapper">
+      <header>
+        <p><a href="index.html"><< Back to Homepage</a></p>
+        <h1>Dragon Curves</h1>
+        <p>
+          Self-similar, space-filling <a href="https://en.wikipedia.org/wiki/Dragon_curve">dragon curve</a>, approximated.
+        </p>
+      </header>
+      <div class="parameters">
+        <p>Complexity: {{dragon.n}}</p>
+        <input type="range" min="1" max="15" step="1" v-model="dragon.n"></input>
+        <p>Segment Length: {{dragon.l}}</p>
+        <input type="range" min="100" max="500" step="1" v-model="dragon.l"></input>
+        <p>
+          Squiggle Style:
+          <br>
+          <input type="radio" id="straight" value="0" v-model="dragon.curvy">
+          <label for="straight">Sharp corners</label>
+          <br>
+          <input type="radio" id="truchet" value="1" v-model="dragon.curvy">
+          <label for="truchet">Truchet squiggle</label>
+          <br>
+          <input type="radio" id="curvy" value="2" v-model="dragon.curvy">
+          <label for="curvy">Smooth squiggle</label>
+        </p>
+      </div>
+      <paper w="700" h="750" src="js/dragon-curve.js" :data="dragon"></paper>
+    </div>
+
+    <script src="js/vue-paper.js"></script>
+    <script>
+      var app = new Vue({
+        el: '#root',
+
+        data: {
+          dragon: {
+            n: 7,
+            l: 400,
+            curvy: 0,
+            name: 'dragon'
+          },
+        }
+
+      });
+    </script>
+  </body>
+</html>
