@@ -71,7 +71,7 @@ Vue.component('paper', {
       if (!this.data.name) {
         name = 'paperjs';
       }
-      let filename = name + '-' + datetime;
+      let filename = name + '-' + datetime + '.svg';
       //console.log(filename);
 
       // download link
