@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Curve Stitching</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script type="text/javascript" src="js/paperjs/dist/paper-full.min.js"></script>
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/seedrandom/3.0.1/seedrandom.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:700|Roboto" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="style.css">
+  </head>
+  <body>
+    <div id="root" class="wrapper">
+      <header>
+        <h1>Curve Stitching</h1>
+      </header>
+      <div class="parameters">
+        <p>Select a design:
+          <select v-model="selectedDesign">
+            <option v-for="option in designOptions" v-bind:value="option">
+              {{ option.name }}
+            </option>
+          </select>
+        </p>
+        <div v-for="param,key in selectedDesign.params">
+          <p>{{ param.label }}: {{ selectedDesign.values[key]}}</p>
+          <input type="range" :min="param.min" :max="param.max" :step="param.step" v-model.number="selectedDesign.values[key]"></input>
+        </div>
+      </div>
+      <paper w="700" h="750" src="js/curve-stitching.js" :data="designData"></paper>
+    </div>
+
+    <script src="js/vue-paper.js"></script>
+    <script>
+      var app = new Vue({
+        el: '#root',
+
+        data: {
+          selectedDesign: '',
+          designOptions: [
+            {
+              name: "Parabolas in a polygon",
+              id: "parabolasInPolygon",
+              params: [
+                {
+                  label: "Number of sides",
+                  min: 3, max: 10, step: 1
+                },
+                {
+                  label: "Number of steps per side",
+                  min: 1, max: 50, step: 1
+                }
+              ],
+              values: [3,13]
+            },
+            {
+              name: "Parabolic star",
+              id: "parabolicStar",
+              params: [
+                {
+                  label: "Number of points",
+                  min: 3, max: 10, step: 1
+                },
+                {
+                  label: "Number of steps per line",
+                  min: 1, max: 50, step: 1
+                }
+              ],
+              values: [5,15]
+            },
+          ],
+        },
+
+        computed: {
+          designData: function() {
+            return {
+              name: this.selectedDesign.id,
+              params: this.selectedDesign.values
+            };
+          }
+        }
+
+      });
+    </script>
+  </body>
+</html>
