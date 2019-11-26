@@ -13,7 +13,9 @@
   <body>
     <div id="root" class="wrapper">
       <header>
+        <p><a href="index.html"><< Back to Homepage</a></p>
         <h1>Curve Stitching</h1>
+        <p>Making curves out of line segments. The code used here is adapted from the book <em>Curve Stitching</em> by Jon Millington.</p>
       </header>
       <div class="parameters">
         <p>Select a design:
@@ -28,86 +30,97 @@
           <input type="range" :min="param.min" :max="param.max" :step="param.step" v-model.number="selectedDesign.values[key]"></input>
         </div>
       </div>
-      <paper w="700" h="750" src="js/curve-stitching.js" :data="designData"></paper>
+      <paper w="600" h="600" src="js/curve-stitching.js" :data="designData"></paper>
     </div>
 
     <script src="js/vue-paper.js"></script>
     <script>
-      var app = new Vue({
-        el: '#root',
+    var app = new Vue({
+      el: '#root',
 
-        data: {
-          selectedDesign: '',
-          designOptions: [
-            {
-              name: "Parabolas in a polygon",
-              id: "parabolasInPolygon",
-              params: [
-                {
-                  label: "Number of sides",
-                  min: 3, max: 10, step: 1
-                },
-                {
-                  label: "Number of steps per side",
-                  min: 1, max: 50, step: 1
-                }
-              ],
-              values: [5,15]
-            },
-            {
-              name: "Parabolic star",
-              id: "parabolicStar",
-              params: [
-                {
-                  label: "Number of points",
-                  min: 3, max: 10, step: 1
-                },
-                {
-                  label: "Number of steps per line",
-                  min: 1, max: 50, step: 1
-                }
-              ],
-              values: [5,15]
-            },
-            {
-              name: "Curves in a circle",
-              id: "curvesInCircle",
-              params: [
-                {
-                  label: "Number of sectors",
-                  min: 3, max: 10, step: 1
-                },
-                {
-                  label: "Number of points per sector",
-                  min: 1, max: 50, step: 1
-                }
-              ],
-              values: [5,15]
-            },
-            {
-              name: "Eight parabolas in a square",
-              id: "eightParabolasInSquare",
-              params: [
-                {
-                  label: "Number of steps",
-                  min: 1, max: 50, step: 1
-                }
-              ],
-              values: [15]
-            },
-          ],
-        },
+      data: {
+        designOptions: [
+          {
+            name: "Parabolas in a polygon",
+            id: "parabolasInPolygon",
+            params: [
+              {
+                label: "Number of sides",
+                min: 3, max: 10, step: 1
+              },
+              {
+                label: "Number of steps per side",
+                min: 1, max: 50, step: 1
+              }
+            ],
+            values: [5,15]
+          },
+          {
+            name: "Parabolic star",
+            id: "parabolicStar",
+            params: [
+              {
+                label: "Number of points",
+                min: 3, max: 10, step: 1
+              },
+              {
+                label: "Number of steps per line",
+                min: 1, max: 50, step: 1
+              }
+            ],
+            values: [5,15]
+          },
+          {
+            name: "Curves in a circle",
+            id: "curvesInCircle",
+            params: [
+              {
+                label: "Number of sectors",
+                min: 3, max: 10, step: 1
+              },
+              {
+                label: "Number of points per sector",
+                min: 1, max: 50, step: 1
+              }
+            ],
+            values: [5,15]
+          },
+          {
+            name: "Eight parabolas in a square",
+            id: "eightParabolasInSquare",
+            params: [
+              {
+                label: "Number of steps",
+                min: 1, max: 50, step: 1
+              }
+            ],
+            values: [15]
+          },
+          {
+            name: "Parabola design",
+            id: "parabolaDesign",
+            params: [
+              {
+                label: "Number of steps",
+                min: 1, max: 100, step: 1
+              }
+            ],
+            values: [30]
+          },
+        ],
+        selectedDesign: '',
+      },
 
-        computed: {
-          designData: function() {
-            return {
-              name: this.selectedDesign.id,
-              params: this.selectedDesign.values
-            };
-          }
+      computed: {
+        designData: function() {
+          return {
+            name: this.selectedDesign.id,
+            params: this.selectedDesign.values,
+          };
         }
+      }
 
-      });
+    });
     </script>
   </body>
 </html>

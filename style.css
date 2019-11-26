@@ -1,6 +1,49 @@
+/*
+ * Typography
+ */
+
+body {
+  font-family: 'Roboto', sans-serif;
+}
+
+h1 {
+  font-size: 3em;
+  font-family: 'Josefin Sans', sans-serif;
+}
+
+h2 {
+  font-size: 2em;
+  font-family: 'Josefin Sans', sans-serif;
+}
+
+p {
+  font-size: 0.8em;
+}
+
+
+a {
+  color: gray;
+  font-weight: normal;
+  text-decoration: none;
+}
+
+a:hover {
+  color: mediumpurple;
+}
+
+
+/*
+ * Layout
+ */
+
+ canvas {
+   display: table;
+   margin: 0 auto;
+ }
+
 .wrapper {
   display: grid;
-  grid-template-columns: 1fr 700px;
+  grid-template-columns: 1fr minmax(650px,3fr);
   grid-template-rows: auto 1fr;
 }
 
@@ -26,23 +69,9 @@
   right: 0;
 }
 
-body {
-  font-family: 'Roboto', sans-serif;
-}
-
-h1 {
-  font-size: 3em;
-  font-family: 'Josefin Sans', sans-serif;
-}
-
-h2 {
-  font-size: 2em;
-  font-family: 'Josefin Sans', sans-serif;
-}
-
-p {
-  font-size: 0.8em;
-}
+/*
+ * Buttons and inputs
+ */
 
 button {
   background-color: lavender;
@@ -58,12 +87,71 @@ button:hover {
   background-color: thistle;
 }
 
-a {
-  color: gray;
-  font-weight: normal;
-  text-decoration: none;
+/* https://www.cssportal.com/style-input-range/ */
+input[type=range] {
+  height: 20px;
+  -webkit-appearance: none;
+  margin: 0 0 10px 0;
+  width: 95%;
 }
-
-a:hover {
-  color: mediumpurple;
+input[type=range]:focus {
+  outline: none;
+}
+input[type=range]::-webkit-slider-runnable-track {
+  width: 95%;
+  height: 10px;
+  cursor: pointer;
+  background: #E6E6FA;
+}
+input[type=range]::-webkit-slider-thumb {
+  height: 20px;
+  width: 10px;
+  background: #6A5ACD;
+  cursor: pointer;
+  -webkit-appearance: none;
+  margin-top: -5px;
+}
+input[type=range]:focus::-webkit-slider-runnable-track {
+  background: #E6E6FA;
+}
+input[type=range]::-moz-range-track {
+  width: 95%;
+  height: 10px;
+  cursor: pointer;
+  background: #E6E6FA;
+  border-radius: 0px;
+}
+input[type=range]::-moz-range-thumb {
+  height: 20px;
+  width: 10px;
+  border-radius: 0px;
+  background: #6A5ACD;
+  cursor: pointer;
+}
+input[type=range]::-ms-track {
+  width: 95%;
+  height: 10px;
+  cursor: pointer;
+  background: transparent;
+  border-color: transparent;
+  color: transparent;
+}
+input[type=range]::-ms-fill-lower {
+  background: #E6E6FA;
+}
+input[type=range]::-ms-fill-upper {
+  background: #E6E6FA;
+}
+input[type=range]::-ms-thumb {
+  margin-top: 1px;
+  height: 20px;
+  width: 10px;
+  background: #6A5ACD;
+  cursor: pointer;
+}
+input[type=range]:focus::-ms-fill-lower {
+  background: #E6E6FA;
+}
+input[type=range]:focus::-ms-fill-upper {
+  background: #E6E6FA;
 }
